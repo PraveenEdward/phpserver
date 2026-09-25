@@ -23,22 +23,39 @@ sudo systemctl status php8.5-fpm
 sudo systemctl enable php8.5-fpm
 ```
 
-## Add DB Credentials as environment in php-fpm configuration
+## Add DB Credentials as Environment Variables in PHP-FPM
 
-```
+Edit the PHP-FPM pool configuration:
+
+```bash
 sudo nano /etc/php/8.5/fpm/pool.d/www.conf
 ```
 
-Find ;env lines add under
+Find the existing `env[...]` lines and add the following:
 
+```ini
 env[DB_HOST] = <DB_HOST>
 env[DB_USER] = <DB_USER>
 env[DB_PASS] = <DB_PASS>
 env[DB_NAME] = <DB_NAME>
+```
 
+For example:
 
-**Ctrl + O** - Save
-**Ctrl + X** - Exit
+```ini
+env[DB_HOST] = 127.0.0.1
+env[DB_USER] = admin
+env[DB_PASS] = <DB_PASSWORD>
+env[DB_NAME] = student
+```
+
+Save the file:
+
+```text
+Ctrl + O
+Enter
+Ctrl + X
+```
 
 ## Create a Directory for Application on Nginx Path
 
