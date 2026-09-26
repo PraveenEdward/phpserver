@@ -38,7 +38,7 @@ echo "<script>alert('Logo has Invalid format. Only jpg / jpeg/ png /gif format a
 else
 {
 $image=md5($image).time().$extension;
-$target = "/var/www/html/php/uploads/" . $image;
+$target = "/var/www/html/uploads/" . $image;
 if (move_uploaded_file($_FILES["image"]["tmp_name"], $target))
 {
     echo "<script>
